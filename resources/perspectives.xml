@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<applicationPerspectiveList>
+	<perspectives>
+		<name>Player</name>
+		<id>playerPerspective</id>
+		<perspectiveClass>org.pmedv.jake.app.PlayerPerspective</perspectiveClass>
+		<perspectiveIcon>icons/silk/image.png</perspectiveIcon>
+		<toolTipText>Opens the board player perspective</toolTipText>
+		<mnemonic>P</mnemonic>
+		<modifier>alt</modifier>		
+	</perspectives>
+</applicationPerspectiveList>

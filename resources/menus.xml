@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+	<applicationMenubar>
+		<showRecentMenu>false</showRecentMenu>
+		<menus>
+			<name>File</name>
+			<mnemonic>F</mnemonic>
+			<items>
+				<name>Exit</name>
+				<actionClass>org.pmedv.core.commands.ExitCommand</actionClass>
+				<imageIcon>icons/silk/quit.png</imageIcon>
+				<mnemonic>X</mnemonic>
+				<modifier>ctrl</modifier>
+				<toolTipText>Exits the application</toolTipText>
+			</items>	
+			<items>
+				<name>Open directory</name>
+				<actionClass>org.pmedv.jake.commands.OpenPlayerViewCommand</actionClass>
+				<mnemonic>O</mnemonic>
+				<modifier>ctrl</modifier>
+				<toolTipText>Opens a directory</toolTipText>
+			</items>						
+			<items>
+				<name>Add files</name>
+				<actionClass>org.pmedv.jake.commands.AddFilesCommand</actionClass>
+				<mnemonic>D</mnemonic>
+				<modifier>ctrl</modifier>
+				<toolTipText>Adds files to the playlist</toolTipText>
+			</items>						
+			<type>file</type>
+		</menus>
+		<menus>
+			<name>Options</name>
+			<mnemonic>O</mnemonic>
+			<items>
+				<name>Random</name>
+				<actionClass>org.pmedv.jake.commands.ToggleRandomCommand</actionClass>
+				<mnemonic>R</mnemonic>
+				<modifier>ctrl</modifier>
+				<toolTipText>Toggles the random mode</toolTipText>
+				<type>ApplicationMenuItemType.CHECKBOX</type>
+			</items>	
+			<type>common</type>
+		</menus>
+		
+</applicationMenubar>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>application.properties</value>
+		</property>
+	</bean>
+	
+	<!-- 	
+    <bean id="splashScreen" class="org.pmedv.core.app.SplashScreen">
+        <property name="imageResourcePath" value="images/splash.png"/>
+        <property name="showProgressLabel" value="true"/>
+    </bean> 
+ 	 -->
+ 	 
+	<bean id="logPane" class="org.pmedv.core.components.LogPane"/>	 
+	 
+	<bean id="contextApplicationContextProvider" class="org.pmedv.core.context.ApplicationContextProvider">
+		<constructor-arg><value>${app.name}</value></constructor-arg>
+	</bean>
+
+	<bean id="resourceService" class="org.pmedv.core.services.ResourceServiceImpl"/>
+	
+
+	<bean id="applicationWindowAdvisor" class="org.pmedv.core.gui.ApplicationWindowAdvisorImpl"/>
+    <bean id="applicationWindowConfig" class="org.pmedv.core.provider.ApplicationWindowConfigurationProviderImpl"/>
+    <bean id="abstractApplicationWindow" class="org.pmedv.core.gui.ApplicationWindow" abstract="true"/>
+    <bean id="applicationWindow" class="org.pmedv.core.gui.ApplicationWindow" parent="abstractApplicationWindow"/>
+
+	<bean id="abstractPerspective" abstract="true" class="org.pmedv.core.perspectives.AbstractPerspective"/>
+	<bean id="playerPerspective" class="org.pmedv.jake.app.PlayerPerspective" parent="abstractPerspective"/>
+
+	<bean id="perspectiveProvider" class="org.pmedv.core.provider.ApplicationPerspectiveProviderImpl"/>
+    <bean id="menuBarProvider" class="org.pmedv.core.provider.ApplicationMenuBarProviderImpl"/>	
+	<bean id="toolBarProvider" class="org.pmedv.core.provider.ApplicationToolbarProviderImpl"/>
+    
+	
+	<bean id="logView" class="net.infonode.docking.View">
+		<constructor-arg><value>LogView</value></constructor-arg>
+		<constructor-arg>
+			<null/>
+		</constructor-arg> 
+		<constructor-arg ref="logPane"/>
+	</bean>
+	 
+	<bean id="abstractController" class="org.pmedv.core.gui.controller.AbstractController" abstract="true"/>	
+	<bean id="authenticator" class="org.pmedv.core.authentication.DummyAuthenticatorImpl"/>	
+	<bean id="loginController" class="org.pmedv.core.gui.controller.ApplicationLoginController" parent="abstractController">
+	   <constructor-arg ref="authenticator"/>
+	</bean>
+	 
+</beans>
